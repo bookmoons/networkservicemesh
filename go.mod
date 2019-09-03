@@ -9,7 +9,7 @@ require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20190717042225-c3de453c63f4 // indirect
 	github.com/aws/aws-sdk-go v1.22.0
-	github.com/caddyserver/caddy v1.0.1
+	github.com/caddyserver/caddy v1.0.3
 	github.com/codahale/hdrhistogram v0.0.0-20161010025455-3a0bb77429bd // indirect
 	github.com/coredns/coredns v1.5.2
 	github.com/dnstap/golang-dnstap v0.1.0
