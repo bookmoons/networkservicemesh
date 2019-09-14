@@ -2,7 +2,7 @@
 
 package tools
 
-// FuzzParseAnnotationValu tests annotation value parsing.
+// FuzzParseAnnotationValue tests annotation value parsing.
 func FuzzParseAnnotationValue(fuzz []byte) int {
 	_, err := ParseAnnotationValue(string(fuzz))
 	if err != nil {
