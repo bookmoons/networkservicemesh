@@ -16,3 +16,15 @@ func FuzzParseProcFile(fuzz []byte) int {
 	}
 	return 1
 }
+
+// FuzzParseGatewayIP tests gateway IP address parsing.
+func FuzzParseGatewayIP(fuzz []byte) int {
+	if len(fuzz) == 0 {
+		return -1
+	}
+	result := parseGatewayIP(string(fuzz))
+	if result.IsUnspecified() {
+		return 0
+	}
+	return 1
+}
