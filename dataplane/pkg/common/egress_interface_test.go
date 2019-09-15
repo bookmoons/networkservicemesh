@@ -2,6 +2,7 @@ package common
 
 import (
 	"bufio"
+	"bytes"
 	"strings"
 	"testing"
 
@@ -40,6 +41,15 @@ func TestParseProcWrongContent(t *testing.T) {
 	eth0, gw, err := parseProcFile(r)
 	g.Expect(err.Error()).To(Equal("Failed to locate default route..."))
 	logrus.Printf("Value %v", gw.String())
+	g.Expect(eth0).To(Equal(""))
+	g.Expect(gw).To(BeNil())
+}
+func TestParseProcBlankLine(t *testing.T) {
+	g := NewWithT(t)
+
+	r := bufio.NewReader(bytes.NewReader([]byte{0x0a}))
+	eth0, gw, err := parseProcFile(r)
+	g.Expect(err.Error()).To(Not(BeNil()))
 	g.Expect(eth0).To(Equal(""))
 	g.Expect(gw).To(BeNil())
 }
